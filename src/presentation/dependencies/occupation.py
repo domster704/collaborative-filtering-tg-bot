@@ -1,4 +1,4 @@
-from src.application.services.occupation.get_all import OccupationGetAllUseCase
+from src.application.usecase.occupation.get_all import OccupationGetAllUseCase
 from src.infrastructure.repositories.occupation_repository import (
     APIOccupationRepository,
 )

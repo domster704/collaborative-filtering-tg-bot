@@ -1,6 +1,6 @@
-from src.application.services.user.get import UserGetUseCase
-from src.application.services.user.register import UserRegisterUseCase
-from src.application.services.user.update import UserUpdateOccupationUseCase
+from src.application.usecase.user.get import UserGetUseCase
+from src.application.usecase.user.register import UserRegisterUseCase
+from src.application.usecase.user.update import UserUpdateOccupationUseCase
 from src.config.config import API_URL
 from src.infrastructure.repositories.user_repository import APIUserRepository
 

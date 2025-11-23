@@ -1,5 +1,5 @@
-from src.application.services.movies.get_all import MoviesGetAllUseCase
-from src.application.services.movies.get_by_id import MovieGetByIdUseCase
+from src.application.usecase.movies.get_all import MoviesGetAllUseCase
+from src.application.usecase.movies.get_by_id import MovieGetByIdUseCase
 
 from src.config.config import API_URL
 from src.infrastructure.repositories.movie_repository import APIMovieRepository
