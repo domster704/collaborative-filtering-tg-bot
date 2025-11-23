@@ -58,3 +58,33 @@ class APIMovieRepository:
 
         except Exception as e:
             raise InfrastructureError(f"Ошибка при загрузке фильма: {e}")
+
+    async def get_recommendations(self, tg_user_id: int, top_n: int) -> list[Movie]:
+        try:
+            async with aiohttp.ClientSession() as s:
+                async with s.get(
+                    f"{self.api_url}/v1/recommendations/{tg_user_id}?top_n={top_n}"
+                ) as r:
+                    if not r.ok:
+                        raise InfrastructureError(
+                            f"Ошибка загрузки рекомендаций: {r.status}"
+                        )
+
+                    data = await r.json()
+
+            movies = [
+                Movie(
+                    id=m["id"],
+                    title=m["title"],
+                    release_date=m["release_date"],
+                    video_release_date=m["video_release_date"],
+                    imdb_url=m["imdb_url"],
+                    genres=[Genre(id=g["id"], name=g["name"]) for g in m["genres"]],
+                )
+                for m in data
+            ]
+
+            return movies
+
+        except Exception as e:
+            raise InfrastructureError(f"Ошибка при загрузке рекомендаций: {e}")

@@ -1,5 +1,8 @@
 from src.application.usecase.movies.get_all import MoviesGetAllUseCase
 from src.application.usecase.movies.get_by_id import MovieGetByIdUseCase
+from src.application.usecase.movies.get_recommendations import (
+    MoviesGetRecommendationsUseCase,
+)
 
 from src.config.config import API_URL
 from src.infrastructure.repositories.movie_repository import APIMovieRepository
@@ -11,3 +14,7 @@ def get_movies_use_case():
 
 def get_movie_by_id_use_case():
     return MovieGetByIdUseCase(APIMovieRepository(API_URL))
+
+
+def get_recommendations_use_case():
+    return MoviesGetRecommendationsUseCase(APIMovieRepository(API_URL))

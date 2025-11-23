@@ -4,7 +4,7 @@ from aiogram.utils.keyboard import InlineKeyboardBuilder
 
 from src.domain.entities.movie import Movie
 from src.presentation.dependencies.movies import get_movie_by_id_use_case
-from src.presentation.routers.movies_list import MovieCallbackData
+from src.utils.get_movie_pagination import MovieCallbackData
 
 movie_card_router = Router()
 
